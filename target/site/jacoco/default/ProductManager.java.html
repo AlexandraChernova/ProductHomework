@@ -1,41 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProductHomework</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">ProductManager.java</span></div><h1>ProductManager.java</h1><pre class="source lang-java linenums">import org.jetbrains.annotations.NotNull;
-
-import java.util.Scanner;
-
-public class ProductManager {
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProductManager</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">ProductManager.java</span></div><h1>ProductManager.java</h1><pre class="source lang-java linenums">public class ProductManager {
     private ProductRepository repo;
 
-<span class="fc" id="L8">    public ProductManager(ProductRepository repo) {</span>
+<span class="fc" id="L4">    public ProductManager(ProductRepository repo) {</span>
 
-<span class="fc" id="L10">        this.repo = repo;</span>
-<span class="fc" id="L11">    }</span>
+<span class="fc" id="L6">        this.repo = repo;</span>
+<span class="fc" id="L7">    }</span>
 
     public void save(Product product) {
 
-<span class="fc" id="L15">        repo.save(product);</span>
-<span class="fc" id="L16">    }</span>
+<span class="fc" id="L11">        repo.save(product);</span>
+<span class="fc" id="L12">    }</span>
 
     public Product[] searchBy(String text) {
-<span class="fc" id="L19">        Product[] result = new Product[0];</span>
-<span class="fc bfc" id="L20" title="All 2 branches covered.">        for (Product product : repo.findAll()) {</span>
-<span class="fc bfc" id="L21" title="All 2 branches covered.">            if (matches(product, text)) {</span>
-<span class="fc" id="L22">                Product[] tmp = new Product[result.length + 1];</span>
-<span class="fc bfc" id="L23" title="All 2 branches covered.">                for (int i = 0; i &lt; result.length; i++) {</span>
-<span class="fc" id="L24">                    tmp[i] = result[i];</span>
+<span class="fc" id="L15">        Product[] result = new Product[0];</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (Product product : repo.findAll()) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            if (matches(product, text)) {</span>
+<span class="fc" id="L18">                Product[] tmp = new Product[result.length + 1];</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">                for (int i = 0; i &lt; result.length; i++) {</span>
+<span class="fc" id="L20">                    tmp[i] = result[i];</span>
                 }
-<span class="fc" id="L26">                tmp[result.length] = product;</span>
-<span class="fc" id="L27">                result = tmp;</span>
+<span class="fc" id="L22">                tmp[result.length] = product;</span>
+<span class="fc" id="L23">                result = tmp;</span>
             }
         }
-<span class="fc" id="L30">        return result;</span>
+<span class="fc" id="L26">        return result;</span>
     }
 
-    // метод определения соответствия товара product запросу search
     public boolean matches(Product product, String search) {
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (product.getName().contains(search)) {</span>
-<span class="fc" id="L36">            return true;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (product.getName().contains(search)) {</span>
+<span class="fc" id="L31">            return true;</span>
         } else {
-<span class="fc" id="L38">            return false;</span>
+<span class="fc" id="L33">            return false;</span>
         }
 
     }
